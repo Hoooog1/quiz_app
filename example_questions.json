@@ -1,0 +1,58 @@
+[
+  {
+    "type": "single",
+    "question": "Python 是一种什么类型的编程语言？",
+    "options": [
+      "编译型语言",
+      "解释型语言",
+      "汇编语言",
+      "机器语言"
+    ],
+    "answer": 1
+  },
+  {
+    "type": "single",
+    "question": "下列哪个不是 Python 的数据类型？",
+    "options": [
+      "int",
+      "string",
+      "char",
+      "list"
+    ],
+    "answer": 2
+  },
+  {
+    "type": "multiple",
+    "question": "以下哪些是 Python 的内置数据结构？（多选）",
+    "options": [
+      "列表 (list)",
+      "字典 (dict)",
+      "集合 (set)",
+      "数组 (array)"
+    ],
+    "answer": [0, 1, 2]
+  },
+  {
+    "type": "single",
+    "question": "在 Python 中，如何定义一个空列表？",
+    "options": [
+      "list()",
+      "[]",
+      "new list()",
+      "A 和 B 都可以"
+    ],
+    "answer": 3
+  },
+  {
+    "type": "multiple",
+    "question": "以下哪些是 Python 的关键字？（多选）",
+    "options": [
+      "if",
+      "for",
+      "class",
+      "function"
+    ],
+    "answer": [0, 1, 2]
+  }
+]
+

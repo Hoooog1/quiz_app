@@ -1,0 +1,44 @@
+# 使用 Wine 在 Linux 容器中打包 Windows 可执行文件
+FROM ubuntu:22.04
+
+# 设置环境变量
+ENV DEBIAN_FRONTEND=noninteractive
+ENV WINEDLLOVERRIDES="mscoree,mshtml="
+ENV DISPLAY=:99
+ENV WINEARCH=win64
+
+# 安装系统依赖
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-pip \
+    wget \
+    xvfb \
+    wine \
+    wine64 \
+    winetricks \
+    x11-utils \
+    && rm -rf /var/lib/apt/lists/*
+
+# 初始化 Wine（简化版本，避免复杂的依赖）
+RUN mkdir -p /root/.wine && \
+    winecfg -v win10 -f || true && \
+    winetricks -q --unattended vcrun2015 vcrun2017 vcrun2019 corefonts || true
+
+# 设置工作目录
+WORKDIR /app
+
+# 复制项目文件
+COPY requirements.txt .
+COPY main.py .
+COPY example_questions.xlsx .
+COPY example_questions.json .
+COPY build_windows_wine.sh /app/build.sh
+
+# 安装 Linux 版本的依赖（用于准备环境）
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+# 设置执行权限
+RUN chmod +x /app/build.sh
+
+# 默认命令
+CMD ["/app/build.sh"]
