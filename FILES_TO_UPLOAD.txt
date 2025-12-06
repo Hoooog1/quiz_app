@@ -1,0 +1,39 @@
+需要上传到 GitHub 的文件列表
+================================
+
+必需文件（必须上传）：
+-------------------
+✅ main.py                          - 主程序文件
+✅ requirements.txt                  - Python 依赖
+✅ README.md                         - 说明文档
+✅ example_questions.xlsx            - 示例 Excel 文件
+✅ example_questions.json            - 示例 JSON 文件
+✅ .github/workflows/build.yml       - GitHub Actions 配置（重要！）
+
+可选文件（建议上传）：
+-------------------
+📄 build_macos.sh                    - macOS 打包脚本
+📄 build_windows.bat                 - Windows 打包脚本
+📄 setup_windows.bat                 - Windows 环境设置
+📄 GITHUB_ACTIONS_GUIDE.md           - GitHub Actions 详细指南
+📄 QUICK_START.md                    - 快速开始指南
+📄 VIRTUAL_MACHINE_GUIDE.md          - 虚拟机使用指南
+📄 GIT_PUSH_FIX.md                   - Git 问题修复指南
+📄 GITHUB_MANUAL_UPLOAD.md           - 手动上传指南
+
+不需要上传的文件：
+-------------------
+❌ build/                            - 构建临时文件
+❌ dist/                             - 打包输出文件
+❌ *.spec                            - PyInstaller 配置文件
+❌ .git/                             - Git 配置（自动处理）
+❌ __pycache__/                      - Python 缓存
+❌ *.pyc                             - Python 编译文件
+❌ .DS_Store                          - macOS 系统文件
+
+上传顺序建议：
+------------
+1. 先上传普通文件（main.py, requirements.txt 等）
+2. 然后创建 .github/workflows/build.yml 文件
+3. 最后上传其他文档文件
+
